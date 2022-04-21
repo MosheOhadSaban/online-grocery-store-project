@@ -1,0 +1,145 @@
+<div
+  class="box has-background-link-light edit-product-form animate__animated animate__fadeIn"
+>
+  <button
+    class="delete is-pulled-right"
+    aria-label="close"
+    (click)="onExitClick()"
+  ></button>
+  <div class="level">
+    <div class="level-item">
+      <fa-icon
+        class="faUserIcon animate__animated animate__pulse animate__infinite infinite has-text-link"
+        [icon]="faPenSquareIcon"
+        size="6x"
+      ></fa-icon>
+    </div>
+  </div>
+  <hr class="has-background-grey-lighter" />
+
+  <form [formGroup]="editProductForm">
+    <div class="field">
+      <label class="label">Product Name:</label>
+      <div class="control">
+        <input
+          formControlName="name"
+          class="input"
+          type="text"
+          placeholder="Product Name"
+        />
+        <div
+          class="notification is-danger is-light animate__animated animate__shakeX"
+          *ngIf="editProductForm.get('name')?.errors?.['required'] && editProductForm.get('name')?.touched"
+        >
+          This field is required
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Price:</label>
+      <div class="control">
+        <input
+          formControlName="price"
+          class="input"
+          type="text"
+          placeholder="Price"
+        />
+        <div
+          class="notification is-danger is-light animate__animated animate__shakeX"
+          *ngIf="this.editProductForm.get('price')?.errors?.['required'] && this.editProductForm.get('price')?.touched"
+        >
+          This field is required
+        </div>
+      </div>
+    </div>
+    <div class="file has-name">
+      <label class="file-label">
+        <input
+          class="file-input"
+          type="file"
+          placeholder="Image Upload"
+          (change)="onImageSelected($event)"
+        />
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fas fa-upload"></i>
+          </span>
+          <span class="file-label"> Choose a file… </span>
+        </span>
+        <span class="file-name"> {{ imageFileName }}</span>
+      </label>
+
+      <button
+        [disabled]="editProductForm.get('imagePath')?.errors?.['invalid']"
+        class="button"
+        type="button"
+        (click)="onImageUploadClick()"
+      >
+        Upload
+      </button>
+    </div>
+    <div class="field mt-1">
+      <label class="label">Amount:</label>
+      <div class="control">
+        <input
+          formControlName="amountByUnit"
+          class="input"
+          type="text"
+          placeholder="Amount"
+        />
+        <div
+          class="notification is-danger is-light animate__animated animate__shakeX"
+          *ngIf="this.editProductForm.get('amountByUnit')?.errors?.['required'] && this.editProductForm.get('amountByUnit')?.touched"
+        >
+          This field is required
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Unit Measurement:</label>
+      <div class="control">
+        <input
+          formControlName="unitMeasurement"
+          class="input"
+          type="text"
+          placeholder="Unit Measurement"
+        />
+        <div
+          class="notification is-danger is-light animate__animated animate__shakeX"
+          *ngIf="this.editProductForm.get('unitMeasurement')?.errors?.['required'] && this.editProductForm.get('unitMeasurement')?.touched"
+        >
+          This field is required
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>
+        <label class="label">Category:</label>
+        <div class="select is-link">
+          <select
+            (change)="changeCategory($event)"
+            formControlName="categoryName"
+            class="control"
+          >
+            <option
+              *ngFor="let product of prodcutCategories"
+              [value]="product.name"
+            >
+              {{ product.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </form>
+  <figure class="image is-128x128 mt-3">
+    <img class="is-rounded" [src]="imagePathUrlClient" />
+  </figure>
+  <div class="level">
+    <div class="level-item">
+      <button class="button is-link is-outlined" (click)="onSavaClick()">
+        Save
+      </button>
+    </div>
+  </div>
+</div>

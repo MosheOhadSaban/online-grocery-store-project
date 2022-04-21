@@ -1,0 +1,67 @@
+<div
+  class="box has-background-link-light login-form animate__animated animate__fadeIn"
+>
+  <button
+    class="delete is-pulled-right mb-6"
+    aria-label="close"
+    (click)="onExitClick()"
+  ></button>
+  <div class="level">
+    <div class="level-item">
+      <fa-icon
+        class="faUserIcon animate__animated animate__pulse animate__infinite infinite has-text-link"
+        [icon]="faUserIcon"
+        size="6x"
+      ></fa-icon>
+    </div>
+  </div>
+  <hr class="has-background-grey-lighter" />
+  <form [formGroup]="loginForm">
+    <div class="field">
+      <label class="label">Email:</label>
+      <input
+        formControlName="email"
+        class="input"
+        type="email"
+        placeholder="Email"
+      />
+      <div
+        class="notification is-danger is-light"
+        *ngIf="email?.invalid && email?.touched"
+      >
+        Email is required.
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Password:</label>
+      <div class="control">
+        <input
+          formControlName="password"
+          class="input"
+          type="password"
+          placeholder="Password"
+        />
+        <div
+          class="notification is-danger is-light"
+          *ngIf="password?.invalid && password?.touched"
+        >
+          Password is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="control level-item">
+      <button
+        (click)="onLoginClick()"
+        [disabled]="loginForm.invalid"
+        class="button is-link is-size-5"
+      >
+        Login
+      </button>
+    </div>
+    <div>
+      <a (click)="onRegisterClick()"> Create an account </a>
+    </div>
+  </form>
+</div>

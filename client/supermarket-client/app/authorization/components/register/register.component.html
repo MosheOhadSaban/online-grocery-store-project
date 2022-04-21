@@ -1,0 +1,217 @@
+<div class="box has-background-link-light register-form animate__animated animate__fadeIn ">
+  <button
+    class="delete is-pulled-right mb-6 cancel-btn"
+    aria-label="close"
+    (click)="onExitClick()"
+  ></button>
+  <div class="level">
+    <div class="level-item">
+      <fa-icon
+        class="faUserIcon animate__animated animate__pulse animate__infinite infinite has-text-link"
+        [icon]="faUserPlusIcon"
+        size="6x"
+      ></fa-icon>
+    </div>
+  </div>
+  <hr class="has-background-grey-lighter" />
+  <form [formGroup]="registerFormStep1" *ngIf="isRegisterProcessStep1">
+    <div class="field">
+      <label class="label">Id:</label>
+      <div class="control">
+        <input
+          formControlName="id"
+          class="input"
+          type="text"
+          placeholder="Id"
+        />
+      </div>
+      <div
+        class="notification is-danger is-light"
+        *ngIf="id.hasError('required') && id.touched"
+      >
+        Id is required.
+      </div>
+      <div
+        class="notification is-danger is-light"
+        *ngIf="id.hasError('minlength') && id.touched"
+      >
+        The minimum length for this field is
+        {{ id.errors.minlength.requiredLength }} characters.
+      </div>
+      <div
+        class="notification is-danger is-light"
+        *ngIf="id.hasError('maxlength') && id.touched"
+      >
+        The maximum length for this field is
+        {{ id.errors.maxlength.requiredLength }} characters.
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Email:</label>
+      <div class="control">
+        <input
+          formControlName="email"
+          class="input"
+          type="email"
+          placeholder="Email"
+          value="hello@"
+        />
+      </div>
+      <div
+        class="notification is-danger is-light"
+        *ngIf="email.hasError('required') && email.touched"
+      >
+        Email is required.
+      </div>
+      <div
+        class="notification is-danger is-light"
+        *ngIf="email.hasError('email') && email.touched"
+      >
+        Email is invalid.
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Password:</label>
+      <div class="control">
+        <input
+          formControlName="password"
+          class="input"
+          type="password"
+          placeholder="Password"
+        />
+      </div>
+      <div
+        class="notification is-danger is-light"
+        *ngIf="password.hasError('required') && password.touched"
+      >
+        Password is required.
+      </div>
+      <div
+        class="notification is-danger is-light"
+        *ngIf="password.hasError('minlength') && password.touched"
+      >
+        The minimum length for this field is
+        {{ password.errors.minlength.requiredLength }} characters.
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Confirm Password:</label>
+      <div class="control">
+        <input
+          formControlName="confirmPassword"
+          class="input"
+          type="password"
+          placeholder="Confirm Password"
+        />
+      </div>
+      <div
+        class="notification is-danger is-light"
+        *ngIf="confirmPassword.hasError('required') && confirmPassword.touched"
+      >
+        Confirm Password is required.
+      </div>
+      <div
+        class="notification is-danger is-light"
+        *ngIf="confirmPassword.hasError('matching')"
+      >
+        Password must match.
+      </div>
+    </div>
+    <div class="control level-item">
+      <button 
+        [disabled]="registerFormStep1.invalid"
+        class="button is-link is-size-5"
+        (click)="onNextStepCilck()"
+      >
+        Next
+        <fa-icon class="ml-1" [icon]="faArrowCircleRightIcon"></fa-icon>
+      </button>
+    </div>
+  </form>
+  <form [formGroup]="registerFormStep2" *ngIf="!isRegisterProcessStep1">
+    <div class="field">
+      <label class="label">First Name:</label>
+      <div class="control">
+        <input
+          formControlName="firstName"
+          class="input"
+          type="text"
+          placeholder="First Name"
+        />
+      </div>
+      <div
+        class="notification is-danger is-light"
+        *ngIf="firstName.hasError('required') && firstName.touched"
+      >
+        First Name is required.
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Last Name:</label>
+      <div class="control">
+        <input
+          formControlName="lastName"
+          class="input"
+          type="text"
+          placeholder="Last Name"
+        />
+      </div>
+      <div
+        class="notification is-danger is-light"
+        *ngIf="lastName.hasError('required') && lastName.touched"
+      >
+        Last Name is required.
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">City:</label>
+      <div class="control">
+        <select formControlName="city" class="control">
+          <option>City address</option>
+          <option *ngFor="let city of citiesArray">
+            {{ city }}
+          </option>
+        </select>
+      </div>
+      <div
+        class="notification is-danger is-light"
+        *ngIf="city.hasError('required') && city.touched"
+      >
+        City is required.
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Street:</label>
+      <div class="control">
+        <input
+          formControlName="street"
+          class="input"
+          type="text"
+          placeholder="Street"
+        />
+      </div>
+      <div
+        class="notification is-danger is-light"
+        *ngIf="street.hasError('required') && street.touched"
+      >
+        Street is required.
+      </div>
+    </div>
+    <div class="level">
+      <div class="control level-left">
+        <button class="button is-link level-item" (click)="onBackStepClick()">
+          Back
+        </button>
+      </div>
+      <div class="control level-right">
+        <button
+          [disabled]="registerFormStep2.invalid"
+          class="button is-link level-item"
+          (click)="onRegister()"
+        >
+          Register
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

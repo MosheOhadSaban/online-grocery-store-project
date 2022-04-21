@@ -1,0 +1,31 @@
+<div class="columns is-multiline">
+  <div
+    class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd"
+    *ngFor="
+      let product of ProductCardsData
+        | categoriesFilterPipe: categoryId
+        | searchProductFilterPipe: searchProductFieldValue
+    "
+  >
+    <div class="card animate__animated animate__fadeIn">
+      <div class="card-content">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="{{ product.imagePath }}" alt="Placeholder image" />
+          </figure>
+        </div>
+        <p class="title is-6">{{ product.name }}</p>
+        <p class="is-size-4">{{ product.price }} &#8362;</p>
+        <p>
+          Price per {{ product.amountByUnit }} {{ product.unitMeasurement }}
+        </p>
+      </div>
+      <div>
+        <button (click)="onEditClick(product)" class="button is-link is-outlined is-medium is-responsive mb-3">
+          Edit
+          <fa-icon class="ml-1 is-size-4" [icon]="faPenSquareIcon"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
