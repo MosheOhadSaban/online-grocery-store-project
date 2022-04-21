@@ -1,0 +1,97 @@
+<div
+  class="column has-background-link-light order-form animate__animated animate__fadeIn"
+>
+  <div class="level">
+    <div class="level-item">
+      <h1 class="title is-3">
+        ORDER :
+        <fa-icon class="faTruckIcon" [icon]="faTruckIcon"></fa-icon>
+      </h1>
+    </div>
+  </div>
+
+  <hr class="has-background-grey" />
+  <form [formGroup]="orderInfoForm">
+    <div class="field">
+      <label class="label">City:</label>
+      <div class="control">
+        <input formControlName="city" class="input" type="text" />
+      </div>
+      <div
+        class="notification is-danger is-light animate__animated animate__shakeX"
+        *ngIf="
+          city?.errors?.['required'] && city?.touched
+        "
+      >
+        City field is required
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Street:</label>
+      <div class="control">
+        <input formControlName="street" class="input" type="text" />
+      </div>
+      <div
+        class="notification is-danger is-light animate__animated animate__shakeX"
+        *ngIf="street?.errors?.['required'] && street?.touched
+ 
+        "
+      >
+        Street field is required
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Shipping Date:</label>
+      <div class="control">
+        <input
+          formControlName="date"
+          class="input"
+          type="date"
+          min="{{ todayDate }}"
+        />
+      </div>
+      <div
+        class="notification is-danger is-light animate__animated animate__shakeX"
+        *ngIf="date?.errors?.['required'] && date?.touched"
+      >
+        Date field is required
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Credit Card:</label>
+      <div class="control">
+        <input formControlName="creditCard" class="input" type="text"  placeholder="1111-2222-3333-4444"/>
+      </div>
+      <div
+        class="notification is-danger is-light animate__animated animate__shakeX"
+        *ngIf="creditCard?.errors?.['required'] && creditCard?.touched
+
+        "
+      >
+        Credit card field is required
+      </div>
+      <div
+        class="notification is-danger is-light animate__animated animate__shakeX"
+        *ngIf="creditCard?.errors?.['minlength'] && creditCard?.touched"
+      >
+        The minimum length for this field is
+        {{creditCard?.errors?.['minlength'].requiredLength}} digits,
+      </div>
+      <div
+        class="notification is-danger is-light animate__animated animate__shakeX"
+        *ngIf="creditCard?.errors?.['maxlength'] && creditCard?.touched"
+      >
+        The maximum length for this field is
+        {{creditCard?.errors?.['maxlength'].requiredLength}} digits,
+      </div>
+    </div>
+    <button
+      [disabled]="orderInfoForm.invalid"
+      class="button is-medium"
+      (click)="onOrderClick()"
+    >
+      Order
+      <fa-icon class="ml-1" [icon]="faDollyIcon"></fa-icon>
+    </button>
+  </form>
+</div>

@@ -1,0 +1,16 @@
+<div class="field search-field">
+  <form>
+    <mat-form-field class="search-field">
+      <mat-label>Search</mat-label>
+      <input
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="searchProductFieldValue"
+        (ngModelChange)="onSearchValueChange($event)"
+        type="search"
+        matInput
+        placeholder="Item"
+      />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </form>
+</div>

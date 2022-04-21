@@ -1,0 +1,26 @@
+.order-form {
+  font-family: "Gloria Hallelujah", cursive;
+}
+
+.input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input{
+  font-family: "Gloria Hallelujah", cursive
+}
+
+.box {
+  height: 100vh;
+  width: 60vh;
+}
+.level{
+  margin-top:3.3vh;
+}
+
+.button{
+  font-family: "Gloria Hallelujah", cursive;
+
+}
+

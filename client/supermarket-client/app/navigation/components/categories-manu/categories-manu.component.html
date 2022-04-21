@@ -1,0 +1,17 @@
+<nav class="categories-menu has-navbar-fixed-top">
+  <div class="columns is-multiline tabs is-boxed categories-tabs">
+    <li
+      class="column"
+      (click)="activateNewTab(category.id); setCategory(category.id)"
+      *ngFor="let category of categoriesData"
+      [ngClass]="{
+        'is-active': category.isActiveTab === true,
+        '': category.isActiveTab === false
+      }"
+    >
+      <a>
+        <span class="category-title">{{ category.name }}</span>
+      </a>
+    </li>
+  </div>
+</nav>

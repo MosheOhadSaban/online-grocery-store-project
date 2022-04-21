@@ -1,0 +1,99 @@
+<section class="hero is-small has-background-link-light">
+  <div class="container is-fluid">
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="navbar-start">
+          <div class="navbar-brand">
+            <figure class="image image is-64x64 mt-4">
+              <img class="is-rounded" src="/assets/images/supermarket.jpg" />
+            </figure>
+          </div>
+          <p class="title navbar-item is-size-1">Mosh Market</p>
+          <p class="subtitle navbar-item">Grocery Store</p>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a
+                (click)="onRegisterClick()"
+                class="button is-link"
+                *ngIf="!isUserLogin"
+              >
+                <fa-icon
+                  class="faUserIcon"
+                  [icon]="faUserPlusIcon"
+                  size="1x"
+                ></fa-icon>
+                Register
+              </a>
+              <a
+                (click)="onLoginClick()"
+                class="button is-link is-outlined"
+                *ngIf="!isUserLogin"
+              >
+                <fa-icon
+                  class="faUserIcon"
+                  [icon]="faUserIcon"
+                  size="1x"
+                ></fa-icon>
+                Login
+              </a>
+              <p
+                class="mr-5 mb-3 is-size-6 has-text-link is-capitalized has-text-weight-bold"
+                *ngIf="isUserLogin"
+              >
+                <fa-icon
+                  class="faUserIcon"
+                  [icon]="faUserIcon"
+                  size="1x"
+                ></fa-icon
+                >Welcome: {{ userDetails.firstName }} {{ userDetails.lastName }}
+              </p>
+              <a
+                class="button is-link is-outlined"
+                (click)="onLogoutClick()"
+                *ngIf="isUserLogin"
+              >
+                <fa-icon
+                  class="faUserIcon"
+                  [icon]="faArrowRightIcon"
+                  size="1x"
+                ></fa-icon>
+                Logout
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="hero-foot">
+        <div class="navbar">
+          <div
+            class="navbar-item"
+            class="navbar-item"
+            *ngIf="router.url == '/shop(sidebar:shop)'"
+          >
+            <app-cart-display-btn></app-cart-display-btn>
+          </div>
+          <div class="navbar-item" *ngIf="router.url == '/shop(sidebar:shop)' || router.url== '/admin-products-view'">
+            <app-categories-manu></app-categories-manu>
+          </div>
+          <div
+            class="navbar-item"
+            class="navbar-item"
+            *ngIf="
+              router.url == '/shop(sidebar:shop)' ||
+              router.url == '/order(sidebar:order)'|| router.url== '/admin-products-view'
+            "
+          >
+            <app-search-product class="search-field"></app-search-product>
+        
+          </div>
+          <div class="navbar-item" *ngIf="router.url== '/admin-products-view'" >
+            <app-add-product-view-btn></app-add-product-view-btn>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
