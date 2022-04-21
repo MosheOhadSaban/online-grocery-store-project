@@ -10,7 +10,7 @@ FullStack An online grocery store project performed with Angular, node.js expres
 - MySQL Workbench
 
 
-### 1. Setup client
+###  Setup client
 - You have downloaded the client folder.
 - open it on your IDE.
 - In The Terminal run the command "npm install". Which will install the dependencies. 
