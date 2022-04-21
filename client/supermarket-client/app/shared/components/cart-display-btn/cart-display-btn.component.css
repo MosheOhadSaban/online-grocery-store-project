@@ -1,0 +1,12 @@
+span:before {
+  content: " ";
+  display: inline-block;
+  width: 5px;
+}
+.button {
+  width: 150px;
+}
+.faTruckIcon {
+  -webkit-animation: vibrate-3 0.5s linear infinite both;
+  animation: vibrate-3 0.5s linear infinite both;
+}

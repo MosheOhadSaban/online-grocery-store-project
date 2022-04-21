@@ -1,0 +1,6 @@
+<button class="button is-link is-outlined" (click)="onCartDisplayClick(isCartIsdisplayed)"> 
+  <fa-icon [icon]="faShoppingCartIcon"></fa-icon>
+  <span></span>
+  <fa-icon [icon]="faAngleDoubleLeftIcon" *ngIf="isCartIsdisplayed"></fa-icon>
+  <fa-icon [icon]="faAngleDoubleRightIcon" *ngIf="!isCartIsdisplayed"></fa-icon>
+</button>
