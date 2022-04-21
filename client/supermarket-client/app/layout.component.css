@@ -1,0 +1,26 @@
+.fixed {
+  position: fixed;
+  width: 100%;
+  transition: 2s linear;
+  top:0px;
+  z-index:2;
+}
+
+.noFixed{
+    position:static;
+    transition: 2s linear;
+    top:-50x;
+ 
+
+}
+.content{
+    position: relative;
+    z-index:1;
+}
+.sidebar{
+  position: relative;
+  z-index:1;
+
+}
+
+

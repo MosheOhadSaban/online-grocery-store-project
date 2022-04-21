@@ -1,0 +1,28 @@
+<app-header></app-header>
+<app-modal></app-modal>
+<div class="section">
+  <div class="container.is-widescreen">
+    <div
+      class="columns is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd"
+    >
+      <div
+        class="column has-background-link-light"
+        [ngClass]="{
+          'is-4': isCartIsdisplayed === true,
+          'is-0': isCartIsdisplayed === false
+        }"
+      >
+        <app-sidebar *ngIf="isCartIsdisplayed"></app-sidebar>
+      </div>
+      <div
+        class="column has-background-white-bis"
+        [ngClass]="{
+          'is-8 ': isCartIsdisplayed === true,
+          'is-12 ': isCartIsdisplayed === false
+        }"
+      >
+        <app-content></app-content>
+      </div>
+    </div>
+  </div>
+</div>
