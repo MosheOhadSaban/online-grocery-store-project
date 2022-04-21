@@ -1,0 +1,5 @@
+/* You can add global styles to this file, and also import other style files */
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+@import '~ngx-toastr/toastr';
+@import 'animate.css';
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
