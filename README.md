@@ -1,6 +1,10 @@
 # online-grocery-store-project-
 FullStack An online grocery store project performed with Angular, node.js express.js and mysql
 
+-  Online grocery store, that allows users, to create a shopping cart, then make an order, and get downable receipt in the end.
+-  User registration and user authentication.
+-  Admin dashboard where you can edit and add products.
+
 
 ## Requirements:
 - Node.js
