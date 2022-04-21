@@ -1,0 +1,59 @@
+<div class="columns is-multiline">
+  <div
+    class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd"
+    *ngFor="
+      let product of ProductCardsData
+        | categoriesFilterPipe: categoryId
+        | searchProductFilterPipe: searchProductFieldValue
+    "
+  >
+    <div class="card animate__animated animate__fadeIn">
+      <div class="card-content">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="{{ product.imagePath }}" alt="Placeholder image" />
+          </figure>
+        </div>
+        <p class="title is-6">{{ product.name }}</p>
+        <p class="is-size-4">{{ product.price }} &#8362;</p>
+        <p>
+          Price per {{ product.amountByUnit }} {{ product.unitMeasurement }}
+        </p>
+        <div class="block">
+          <button
+            (click)="
+              onQuantityMinusClick(product.quantity);
+              product.quantity = onQuantityMinusClick(product.quantity)
+            "
+            class="button is-link"
+          >
+            <fa-icon [icon]="faMinus"></fa-icon>
+          </button>
+          <input
+            type="number"
+            class="input product-quantity"
+            [value]="product.quantity"
+          />
+          <button
+            (click)="
+              onQuantityPlusClick(product.quantity);
+              product.quantity = onQuantityPlusClick(product.quantity)
+            "
+            class="button is-link"
+          >
+            <fa-icon [icon]="faPlus"></fa-icon>
+          </button>
+        </div>
+        <div class="block">
+          <button
+            (click)="onAddItemClick(product)"
+            class="button is-medium is-responsive"
+          >
+            <fa-icon [icon]="faShoppingCart" class="faShoppingCart"></fa-icon
+            >ADD TO CART
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

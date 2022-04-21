@@ -1,0 +1,36 @@
+.column {
+    text-align: center;
+    font-family: "Gloria Hallelujah", cursive;
+  }
+  
+
+  .product-quantity {
+    width: 50px;
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+  
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+  
+  .faShoppingCart {
+    margin-right: 5px;
+  }
+  
+  .product-quantity {
+    text-align: center;
+  }
+  
+ 
+  
+  
+ 
+
+
+
+  

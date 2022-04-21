@@ -1,0 +1,23 @@
+
+.shopping-cart {
+  font-family: "Gloria Hallelujah", cursive;
+  
+}
+.checkout-btn{
+  font-family: "Gloria Hallelujah", cursive;
+}
+
+
+
+.delete-btn {
+
+  display: none;
+}
+.delete-btn:hover {
+  transform: scale(1.1);
+}
+.cart-item:hover .delete-btn {
+  display: block;
+  margin-bottom: 40px;
+  transition: all 0.2s ease-in-out;
+}

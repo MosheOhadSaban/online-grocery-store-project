@@ -1,0 +1,80 @@
+<div
+  class=" box ml-3 animate__animated animate__fadeInLeft shopping-cart "
+  *ngIf="isCartIsdisplayed"
+>
+  <div>
+    <h1>
+      <strong class="is-size-3">MY SHOPPING CART:</strong>
+      <fa-icon class="is-size-3 ml-1" [icon]="faShoppingCartIcon"></fa-icon>
+    </h1>
+  </div>
+
+  <hr class="has-background-grey" />
+
+  <div class="columns is-1 is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
+    <div class="column is-full">
+      <div *ngFor="let item of shoppingCartInfo.cartItems">
+        <div class="box has-text-link cart-item mt-1 is-size-6-mobile is-size-6-tablet">
+          <div class="level">
+            <div class="level-left">
+              <div class="level-item ">
+                {{ item.productName }}
+                <button
+                  class="button is-small is-white"
+                  (click)="onPlusClick(item)"
+                >
+                  <fa-icon [icon]="faPlusIcon"></fa-icon>
+                </button>
+                {{ item.quantity }}
+                <button
+                  class="button is-small is-white"
+                  (click)="onMinusClick(item, shoppingCartInfo.cartId)"
+                >
+                  <fa-icon [icon]="faMinusIcon"></fa-icon>
+                </button>
+                <figure class="image is-48x48">
+                  <img src="{{ item.imagePath }}" />
+                </figure>
+                <div class="ml-3 is-size-6">{{ item.quantityPrice }} &#8362;</div>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                <button
+                  class="delete button is-link delete-btn"
+                  (click)="
+                    onDeleteClick(item.productId, shoppingCartInfo.cartId)
+                  "
+                ></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button
+      class="button is-danger is-outlined is-fullwidth mb-5"
+      (click)="onEmptyShoppingCartClick(shoppingCartInfo.cartId)"
+    >
+      <fa-icon class="mr-2" [icon]="faTrashIcon"></fa-icon>
+    </button>
+  </div>
+  <div class="box has-background-link has-text-white-bis">
+    <div class="level">
+      <div class="level-right is-size-5">
+        TOTAL PRICE: {{ shoppingCartInfo.totalPrice }} &#8362;
+      </div>
+      <div class="level-left">
+        <button
+          (click)="onCheckoutClick()"
+          class="button is-success is-outlined checkout-btn is-size-6"
+        >
+          Checkout
+          <fa-icon  [icon]="faMoneyBillIcon"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
