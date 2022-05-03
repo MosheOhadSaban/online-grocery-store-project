@@ -33,5 +33,12 @@ FullStack An online grocery store project performed with Angular, node.js expres
 -   host: "localhost", // Computer
   user: // Username
   password:// Password
+
   database: "supermarket", // Database name
+  
+  
+  ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/97842317/166501611-e7dd36cc-8aa1-41d0-a322-57d80e8e5f9b.gif)
+
+  
+  
 - 
